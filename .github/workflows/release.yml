@@ -18,18 +18,29 @@ jobs:
       - name: Prepare
         id: prep
         run: |
+          USERNAME=${{ secrets.DOCKER_HUB_USERNAME }}
+          PASSWORD=${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+          CONTAINER="roanfranklin"
+          REPOSITORY="simplewhale"
+
           VERSION="develop"
-          RELEASE="develop"
+          RELEASE=$VERSION
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
           fi
+
           TAGS="${VERSION}"
           if [[ $VERSION =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then
             TAGS="latest"
             RELEASE=$VERSION
           fi
+
           echo ::set-output name=tags::${TAGS}
           echo ::set-output name=release::${RELEASE}
+
+          echo ::set-output name=container::${CONTAINER}
+          echo ::set-output name=repository::${REPOSITORY}
       
       - name: Show Var
         run: echo "TAGS = ${{ steps.prep.outputs.tags }}"
@@ -52,7 +63,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: roanfranklin/simplewhale:${{ steps.prep.outputs.tags }}
+          tags: ${{ steps.prep.outputs.container }}/${{ steps.prep.outputs.repository }}:${{ steps.prep.outputs.tags }}
 
       - name: Build and push 2
         id: docker_build2
@@ -62,7 +73,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: roanfranklin/simplewhale:${{ steps.prep.outputs.release }}
+          tags: ${{ steps.prep.outputs.container }}/${{ steps.prep.outputs.repository }}:${{ steps.prep.outputs.release }}
 
       - name: Image digest
         run: |
