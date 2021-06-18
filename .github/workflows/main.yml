@@ -48,20 +48,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      - name: Show VAR
-        run: |
-          echo "buildx name: ${{ steps.buildx.outputs.name }}"
-          echo "github event: ${{ github.event_name }}"
-          echo "tags: ${{ steps.prep.outputs.tags }}"
-          echo "github user: ${{ github.repository_owner }}"
+      - name: Build and push
+          id: docker_build
+          uses: docker/build-push-action@v2
+          env:
+            RELEASE_VERSION: ${{ steps.prep.outputs.tags }}
+          with:
+            context: ./
+            file: ./Dockerfile
+            push: ${{ github.event_name != 'pull_request' }}
+            target: prod
+            tags: roanfranklin/simplewhale:$RELEASE_VERSION
 
-#      - name: Build and push
-#        id: docker_build
-#        uses: docker/build-push-action@v2
-#        with:
-#          builder: ${{ steps.buildx.outputs.name }}
-#          context: ./
-#          file: ./Dockerfile
-#          target: prod
-#          push: ${{ github.event_name != 'pull_request' }}
-#          tags: ${{ steps.prep.outputs.tags }}
+      - name: Image digest
+          run: echo ${{ steps.docker_build.outputs.digest }}
