@@ -53,6 +53,7 @@ jobs:
           echo "buildx name: ${{ steps.buildx.outputs.name }}"
           echo "github event: ${{ github.event_name }}"
           echo "tags: ${{ steps.prep.outputs.tags }}"
+          echo "github user: ${{ github.repository_owner }}"
 
 #      - name: Build and push
 #        id: docker_build
