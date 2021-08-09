@@ -8,10 +8,18 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
+    - name: Prepare
+      id: prep
+      run: |
+        echo ::set-output name=autor::${{ github.actor }}
+        echo ::set-output name=repository::${{ github.repository }}
+
     - name: send custom message with args
       uses: appleboy/discord-action@master
       with:
         webhook_id: ${{ secrets.WEBHOOK_ID }}
         webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-        color: "#ff0033"
-        message: O usuário ${{ github.actor }}, está realizando um procedimento na Produção no repositório ${{ github.repository }}.
+        color: "#FFF000"
+        message: |
+          **[  A T E N Ç Ã O  ]**
+          O usuário ( ${{ steps.prep.outputs.auttor }} ), está realizando um procedimento no repositório ( ${{ steps.prep.outputs.repository }} ) em PRODUÇÃO.
