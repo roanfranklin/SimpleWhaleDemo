@@ -13,9 +13,12 @@ jobs:
       env:
         DISCORD_WEBHOOK_ID: ${{ secrets.DISCORD_WEBHOOK_ID }}
         DISCORD_WEBHOOK_TOKEN: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
-        TEXT_MESSAGE: 'A T E N Ç Ã O
 
-Usuário: ${{ github.actor }} 
-Repositório: ${{ github.repository }}
-Referência: ${{ github.ref }}
-Namespace: PRODUTION'
+        TYPE_MESSAGE: warning
+        TEXT_MESSAGE: "Iniciando procedimento."
+
+        ACTOR: ${{ github.actor }} 
+        REPOSITORY: ${{ github.repository }}
+        REFERENCE: ${{ github.ref }}
+        NAMESPACE: "Prodution"
+        
