@@ -15,9 +15,4 @@ jobs:
         DISCORD_WEBHOOK_TOKEN: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
       with:
         args: |
-          A T E N Ç Ã O #
-
-          Usuário: ${{ github.actor }}
-          Repositório: ${{ github.repository }}
-          Referência: ${{ github.ref }}
-          Namespace: PRODUTION
+          A T E N Ç Ã O \n\nUsuário: ${{ github.actor }}\nRepositório: ${{ github.repository }}\nReferência: ${{ github.ref }}\nNamespace: PRODUTION
