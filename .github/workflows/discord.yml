@@ -18,7 +18,7 @@ jobs:
       uses: wei/curl@v1
       with:
         args: |
-          -X POST --data '{"content": "A T E N Ç Ã O \n\nUsuário: ${{ steps.prep.outputs.autor }}\nRepositório: ${{ steps.prep.outputs.repository }}\nNamespace: PRODUÇÃO"}' --header "Content-Type:application/json" "https://discord.com/api/webhooks/${{ secrets.WEBHOOK_ID }}/${{ secrets.WEBHOOK_TOKEN }}"
+          -X POST --data '{"content": "A T E N Ç Ã O Usuário: ${{ steps.prep.outputs.autor }}Repositório: ${{ steps.prep.outputs.repository }}Namespace: PRODUÇÃO"}' --header "Content-Type:application/json" "https://discord.com/api/webhooks/${{ secrets.WEBHOOK_ID }}/${{ secrets.WEBHOOK_TOKEN }}"
 
 #    - name: send custom message with args
 #      uses: appleboy/discord-action@master
