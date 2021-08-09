@@ -21,7 +21,8 @@ jobs:
         webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
         color: "#FFF000"
         message: |
-          [  A T E N Ç Ã O  ]
+          A T E N Ç Ã O 
+          
           O usuário ( ${{ steps.prep.outputs.autor }} ) está realizando um procedimento no repositório ( ${{ steps.prep.outputs.repository }} ) em PRODUÇÃO.          
 
 #    - name: send custom message with args
