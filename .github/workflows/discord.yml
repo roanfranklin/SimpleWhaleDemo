@@ -13,6 +13,4 @@ jobs:
       env:
         DISCORD_WEBHOOK_ID: ${{ secrets.DISCORD_WEBHOOK_ID }}
         DISCORD_WEBHOOK_TOKEN: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
-      with:
-        args: |
-          A T E N Ç Ã O \n\nUsuário: ${{ github.actor }}\nRepositório: ${{ github.repository }}\nReferência: ${{ github.ref }}\nNamespace: PRODUTION
+        TEXT_MESSAGE: "A T E N Ç Ã O \n\nUsuário: ${{ github.actor }}\nRepositório: ${{ github.repository }}\nReferência: ${{ github.ref }}\nNamespace: PRODUTION"
