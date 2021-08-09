@@ -22,8 +22,10 @@ jobs:
         color: "#FFF000"
         message: |
           A T E N Ç Ã O 
-          
-          O usuário ( ${{ steps.prep.outputs.autor }} ) está realizando um procedimento no repositório ( ${{ steps.prep.outputs.repository }} ) em PRODUÇÃO.          
+
+          Usuário: ${{ steps.prep.outputs.autor }}
+          Repositório: ${{ steps.prep.outputs.repository }}
+          Namespace: PRODUÇÃO
 
 #    - name: send custom message with args
 #      uses: appleboy/discord-action@master
