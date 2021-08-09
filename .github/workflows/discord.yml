@@ -13,7 +13,7 @@ jobs:
       with:
         webhook_id: ${{ secrets.WEBHOOK_ID }}
         webhook_token: ${{ secrets.WEBHOOK_TOKEN }}
-        args: O ${{ github.acthor }}, está realizando um procedimento na Produção no repositório ${{ github.repository }}.
+        args: O ${{ github.actor }}, está realizando um procedimento na Produção no repositório ${{ github.repository }}.
 
 
 
