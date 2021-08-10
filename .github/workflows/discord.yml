@@ -21,6 +21,7 @@ jobs:
           --branch="teste"
           --reference="${{ github.sha }}"
           --namespace="PRODUTION"
+
 #
 #          --branch="${GITHUB_HEAD_REF}"
 #          --discord_webhook_id="${{ secrets.DISCORD_WEBHOOK_ID }}"
