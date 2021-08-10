@@ -8,16 +8,17 @@ jobs:
     steps:
     - uses: actions/checkout@master
 
-    - name: notify discord in curl
+    - name: Notify Discord
       uses: roanfranklin/action-notify@master
       with:
-        --discord_webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
-        --discord_webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
-        --text: "Commit realizado!"
-        --type: warning
-        --actor: ${{ github.actor }}
-        --repository: ${{ github.repository }}
-        --branch: ${{ github.branch }}
-        --reference: ${{ github.ref }}
-        --namespace: PRODUTION
+        args:
+          --discord_webhook_id = ${{ secrets.DISCORD_WEBHOOK_ID }}
+          --discord_webhook_token = ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
+          --text = "Commit realizado!"
+          --type = warning
+          --actor = ${{ github.actor }}
+          --repository = ${{ github.repository }}
+          --branch = ${{ github.branch }}
+          --reference = ${{ github.ref }}
+          --namespace = PRODUTION
         
