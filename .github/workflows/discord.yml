@@ -12,13 +12,17 @@ jobs:
       uses: roanfranklin/action-notify@master
       with:
         args:
-          --discord_webhook_id="${{ secrets.DISCORD_WEBHOOK_ID }}"
-          --discord_webhook_token="${{ secrets.DISCORD_WEBHOOK_TOKEN }}"
+          --discord_webhook_id="874341091116187709"
+          --discord_webhook_token="4KZBtogJ2w8tFkQe9tb5hiWQz4L139fYLh64AtknzhIegagRDYlhp-u_1FvrnXoELSJj"
           --text="Commit realizado!"
           --type="warning"
           --actor="${{ github.actor }}"
           --repository="${{ github.repository }}"
-          --branch="${GITHUB_HEAD_REF}"
+          --branch="teste"
           --reference="${{ github.sha }}"
           --namespace="PRODUTION"
-        
+#
+#          --branch="${GITHUB_HEAD_REF}"
+#          --discord_webhook_id="${{ secrets.DISCORD_WEBHOOK_ID }}"
+#          --discord_webhook_token="${{ secrets.DISCORD_WEBHOOK_TOKEN }}"
+#
