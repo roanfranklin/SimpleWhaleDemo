@@ -18,7 +18,7 @@ jobs:
           --type="warning"
           --actor="${{ github.actor }}"
           --repository="${{ github.repository }}"
-          --branch="${{ github.branch }}"
-          --reference="${{ github.ref }}"
+          --branch="${{ github.head_ref }}"
+          --reference="${{ github.sha[0:8] }}"
           --namespace="PRODUTION"
         
