@@ -23,6 +23,7 @@ jobs:
           --branch="teste"
           --reference="${{ github.sha }}"
           --namespace="PRODUTION"
+          --teste="espera"
 
 #
 #          --branch="${GITHUB_HEAD_REF}"
