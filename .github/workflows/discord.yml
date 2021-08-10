@@ -19,6 +19,6 @@ jobs:
           --actor="${{ github.actor }}"
           --repository="${{ github.repository }}"
           --branch="${{ github.head_ref }}"
-          --reference="${{ github.sha[0:8] }}"
+          --reference="$(echo ${GITHUB_SHA} | cut -c1-8)"
           --namespace="PRODUTION"
         
