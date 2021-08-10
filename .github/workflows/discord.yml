@@ -10,15 +10,14 @@ jobs:
 
     - name: notify discord in curl
       uses: roanfranklin/action-notify@master
-      env:
-        DISCORD_WEBHOOK_ID: ${{ secrets.DISCORD_WEBHOOK_ID }}
-        DISCORD_WEBHOOK_TOKEN: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
-
-        TYPE_MESSAGE: warning
-        TEXT_MESSAGE: "Iniciando procedimento."
-
-        ACTOR: ${{ github.actor }} 
-        REPOSITORY: ${{ github.repository }}
-        REFERENCE: ${{ github.ref }}
-        NAMESPACE: "Prodution"
+      with:
+        --discord_webhook_id: ${{ secrets.DISCORD_WEBHOOK_ID }}
+        --discord_webhook_token: ${{ secrets.DISCORD_WEBHOOK_TOKEN }}
+        --text: "Commit realizado!"
+        --type: warning
+        --actor: ${{ github.actor }}
+        --repository: ${{ github.repository }}
+        --branch: ${{ github.branch }}
+        --reference: ${{ github.ref }}
+        --namespace: PRODUTION
         
